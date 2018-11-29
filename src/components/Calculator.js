@@ -18,7 +18,7 @@ const CalculatorForm = ({rate}) => {
       <div className="calculator">
         <form>
           <CustomInput value={base} name="base" title="Envías" currency="$" onChange={onChange} type="number" min={1} max={4999}/>
-          <CustomInput value={divider} name="divider" title="Recibes" currency="€" onChange={onChange}/>
+          <CustomInput value={divider} name="divider" title="Recibes" currency="€" onChange={onChange} uppercase/>
         </form>
       </div>
     )

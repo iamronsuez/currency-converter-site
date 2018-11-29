@@ -39,7 +39,7 @@ const numberToRoman = (num, fallbackValue) => {
     const currentIndex = i - 1;
     const currentDigit = arr[currentIndex];
     const currentValue = currentDigit * multipliers[currentIndex];
-    const resolvedSymbol = symbols(currentValue) || fallbackValue
+    const resolvedSymbol = symbols(currentValue)
     result += resolvedSymbol
       ? resolvedSymbol
       : includes(repeatables, repeatables[currentIndex])
@@ -69,9 +69,8 @@ const syllabus = {
   m: 1000 //cm
 };
 
-const ROMAN_REGEX_PATTERN = /^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/gi
 const replaceChar = str => syllabus[str];
-const validExp = str => ROMAN_REGEX_PATTERN.test(str);
+const validExp = str => /^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/gi.test(str);
 
 const compareNext = (a, b) => {
   return replaceChar(a) < replaceChar(b);
