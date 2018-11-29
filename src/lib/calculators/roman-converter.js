@@ -32,15 +32,16 @@ const numberToRoman = (num, fallbackValue) => {
   if (!num) return fallbackValue;
   const number = parseInt(num, 10);
   if (number >= 5000 || number <= 0) return fallbackValue;
-  let arr = (num + "").split("").reverse();
+  let arr = (number + "").split("").reverse();
   let i = arr.length;
   let result = "";
   do {
     const currentIndex = i - 1;
     const currentDigit = arr[currentIndex];
     const currentValue = currentDigit * multipliers[currentIndex];
-    result += symbols(currentValue)
-      ? symbols(currentValue)
+    const resolvedSymbol = symbols(currentValue) || fallbackValue
+    result += resolvedSymbol
+      ? resolvedSymbol
       : includes(repeatables, repeatables[currentIndex])
       ? repeatables[currentIndex].repeat(arr[currentIndex])
       : repeatables[currentIndex];
