@@ -11,8 +11,8 @@ const CustomInput = ({title, ...props }) => {
     )
 }
 
-const CalculatorForm = ({rate}) => {
-    const {values, onChange} = useNumberToRomanConverter(rate)
+const CalculatorForm = ({rate, converterType = 'normal'}) => {
+    const {values, onChange} = useNumberToRomanConverter(rate, converterType)
     const {base, divider} = values
     return (
       <div className="calculator">
@@ -36,3 +36,6 @@ const CalculatorForm = ({rate}) => {
 
 
 export default CalculatorForm
+
+
+

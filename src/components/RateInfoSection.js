@@ -13,3 +13,4 @@ const RateInfoSection = ({title = ''}) => {
 
 
 export default RateInfoSection
+
