@@ -1,5 +1,5 @@
 import React from 'react'
-import {Headline, Calculator} from '../components'
+import {Headline, Calculator, ReceiverInfo} from '../components'
 import {MainLayout} from '../layouts'
 
 const Index = () => {
@@ -8,10 +8,12 @@ const Index = () => {
       <div className="row">
         <div className="col-md-8">
           <Headline
-            title="Cambio Facil"
-            subtitle="Envia tus pesos chilenos al antiguo imperio Romano sin confusión con la ayuda de esta herramienta de conversión de unidades. " />
+            title="Asistente de cambios"
+            subtitle="Bienvenido: Agente" />
         </div>
-        <div className="col-md-4">
+      </div>
+      <div className="row">
+      <div className="col-md-12">
           <Calculator rate={1} converterType='extended' />
         </div>
       </div>
