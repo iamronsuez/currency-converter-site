@@ -1,10 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Auth0Provider } from "@auth0/auth0-react";
 
 import "./styles.css";
 import "./cover.css";
 
 import Index from './pages/index'
+import LoginButton from "./components/LoginButton";
+import LogoutButton from "./components/LogoutButton";
 
 const Cover = ({children}) => {
 
@@ -31,4 +34,14 @@ function App() {
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+
+ReactDOM.render(
+  <Auth0Provider
+    domain="punto-transfer-dev.us.auth0.com"
+    clientId="SICZkvn2vG3G8yj3LIUsjmp6zAVsKXC2"
+    redirectUri={window.location.origin}
+  >
+    <App />
+  </Auth0Provider>,
+  document.getElementById("root")
+);

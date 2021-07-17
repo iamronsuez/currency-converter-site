@@ -17,9 +17,9 @@ const CustomSelect = ({ title, values, ...props }) => {
   return (
     <div className="form-group text-align-left my-2 custom-input">
       <label htmlFor="exampleFormControlInput1">{title}</label>
-      <select class="form-control">
+      <select className="form-control">
         {values.map(({ id, value }) => (
-          <option value={id}>{value}</option>
+          <option key={id} value={id}>{value}</option>
         ))}
       </select>
     </div>
@@ -45,14 +45,13 @@ const Calculator = ({ rate, converterType = 'normal' }) => {
     <div className="calculator">
       <form onSubmit={handleSubmit}>
         <div className="row">
-          <div className="offset-md-2"></div>
-          <div className="col-md-4">
+          <div className="col-md-6">
             <CustomInput value={values.amount} name="amount" title="Monto envio" currency="$" onChange={handleChange} />
             <CustomInput value={values.rate} name="rate" title="Tasa" currency="tasa" onChange={handleChange} />
             <CustomInput value={values.amount * values.rate} name="exchange" title="Monto estimado a recibir" currency="$" onChange={handleChange} readOnly />
           </div>
 
-          <div className="col-md-4">
+          <div className="col-md-6">
             <CustomInput value={values.username} name="username" title="Nombre cliente" currency="$" onChange={handleChange} />
             <CustomInput value={values.identification} name="identification" title="Identificación" onChange={handleChange} />
             <CustomSelect values={banks.map((({ name }) => ({ id: name, value: name })))} value={values.bank} id="exchange" name="exchange" title="Banco" currency="" onChange={handleChange} />
